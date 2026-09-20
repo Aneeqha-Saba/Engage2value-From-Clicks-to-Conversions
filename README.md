@@ -1,6 +1,6 @@
 # Engage 2: Value from Clicks to Conversions
 
-Predicting the purchase value of website sessions from user-behaviour data (Kaggle competition, IIT Madras [course/term name]).
+Predicting the purchase value of website sessions from user-behaviour data (Kaggle competition, IIT Madras ([MLP]).
 
 ## Problem
 Given session-level data (traffic source, device, page views, hits, etc.), predict `purchaseValue` for each session. This is a regression task.
@@ -16,15 +16,11 @@ Given session-level data (traffic source, device, page views, hits, etc.), predi
 ## Results
 | Model | Validation R² |
 |---|---|
-| Dummy baseline | [score] |
-| XGBoost | [score] |
-| XGBoost (tuned) | [score] |
+| LightGBM | 0.236 |
+| Random Forest Regressor | 0.266 |
+| XGBRegressor | 0.283 |
 
-[One or two sentences: what worked, what didn't, e.g. the effect of handling outliers.]
-
-## How to run
-- Data: download from the [Kaggle competition page]([link]) (not included in this repo).
-- Update the file paths in the notebook (it reads from `/kaggle/input/...` on Kaggle).
+XGBoost (tuned, with outlier handling) performed best with a validation R² of 0.283, ahead of Random Forest (0.266) and LightGBM (0.236). All three models fit the training data much better than the held-out data (e.g. train R² of 0.98 for LightGBM against 0.236 on validation), so overfitting was the main challenge. Cross-validation scores for XGBoost also varied a lot between folds, which suggests that stronger regularization, feature selection, or better outlier handling would be the next steps.
 
 ## Tech stack
 Python, pandas, NumPy, scikit-learn, XGBoost, LightGBM, category_encoders, seaborn, matplotlib
