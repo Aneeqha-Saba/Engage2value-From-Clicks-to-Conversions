@@ -1,6 +1,6 @@
 # Engage 2: Value from Clicks to Conversions
 
-Predicting the purchase value of website sessions from user-behaviour data (Kaggle competition, IIT Madras ([MLP]).
+Predicting the purchase value of website sessions from user-behaviour data (Kaggle competition, IIT Madras (MLP).
 
 ## Problem
 Given session-level data (traffic source, device, page views, hits, etc.), predict `purchaseValue` for each session. This is a regression task.
